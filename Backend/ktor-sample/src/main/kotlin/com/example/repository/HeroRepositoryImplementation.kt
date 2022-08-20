@@ -4,7 +4,7 @@ import com.example.models.ApiResponse
 import com.example.models.Hero
 
 const val NEXT_PAGE_KEY = "nextPage"
-const val PREVIOUS_PAGE_KEY = "prevPage"
+const val PREVIOUS_PAGE_KEY = "previousPage"
 
 class HeroRepositoryImplementation : HeroRepository {
 
@@ -412,18 +412,14 @@ class HeroRepositoryImplementation : HeroRepository {
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
         var nextPage: Int? = page
-        if (page in 1..4) {
-            nextPage = nextPage?.plus(1)
-        }
-        if (page in 2..5) {
-            prevPage = prevPage?.minus(1)
-        }
-        if (page == 1) {
-            prevPage = null
-        }
-        if (page == 5) {
-            nextPage = null
-        }
+        if (page in 1..4) nextPage = nextPage!! + 1
+
+        if (page in 2..5) prevPage = prevPage!! - 1
+
+        if (page == 1) prevPage = null
+
+        if (page == 5) nextPage = null
+
         return mapOf(PREVIOUS_PAGE_KEY to prevPage, NEXT_PAGE_KEY to nextPage)
     }
 
@@ -431,23 +427,22 @@ class HeroRepositoryImplementation : HeroRepository {
         return ApiResponse(
             success = true,
             message = "ok",
-            heroes = findHeroes(query = name)
+            heroes = findHeroes(name = name)
         )
     }
 
-    private fun findHeroes(query: String?): List<Hero> {
+    private fun findHeroes(name: String?): List<Hero> {
         val founded = mutableListOf<Hero>()
-        return if (!query.isNullOrEmpty()) {
+        return if (!name.isNullOrEmpty()) {
             heroes.forEach { (_, heroes) ->
                 heroes.forEach { hero ->
-                    if (hero.name.lowercase().contains(query.lowercase())) {
+                    if (hero.name.lowercase().contains(name.lowercase())) {
                         founded.add(hero)
                     }
                 }
             }
             founded
-        } else {
+        } else
             emptyList()
-        }
     }
 }
