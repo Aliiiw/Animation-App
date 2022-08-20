@@ -4,6 +4,7 @@ import com.example.models.ApiResponse
 import com.example.models.Hero
 
 class HeroRepositoryImplementation : HeroRepository {
+
     override val heroes: Map<Int, List<Hero>>
         get() = TODO("Not yet implemented")
     override val page1: List<Hero>
