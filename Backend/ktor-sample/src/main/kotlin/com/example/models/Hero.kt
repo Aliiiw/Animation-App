@@ -16,4 +16,3 @@ data class Hero(
     val abilities: List<String>,
     val natureTypes: List<String>
 )
-
