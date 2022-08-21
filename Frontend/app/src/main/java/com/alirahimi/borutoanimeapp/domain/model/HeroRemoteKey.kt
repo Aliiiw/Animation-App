@@ -8,6 +8,6 @@ import com.alirahimi.borutoanimeapp.utilities.Constants.HERO_REMOTE_KEY_DATABASE
 data class HeroRemoteKey(
     @PrimaryKey(autoGenerate = false)
     val id: Int,
-    val previousKey: Int?,
-    val nextKey: Int?
+    val previousPage: Int?,
+    val nextPage: Int?
 )
