@@ -93,6 +93,28 @@ class ApplicationTest {
         }
     }
 
+    @ExperimentalSerializationApi
+    @Test
+    fun `access all heroes endpoint, query invalid page number, assert error`() {
+        withTestApplication(moduleFunction = Application::module) {
+            handleRequest(HttpMethod.Get, "/boruto/heroes?page=invalid").apply {
+                assertEquals(
+                    expected = HttpStatusCode.BadRequest,
+                    actual = response.status()
+                )
+                val expected = ApiResponse(
+                    success = false,
+                    message = "Only Numbers Allowed."
+                )
+                val actual = Json.decodeFromString<ApiResponse>(response.content.toString())
+                assertEquals(
+                    expected = expected,
+                    actual = actual
+                )
+            }
+        }
+    }
+
 
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
