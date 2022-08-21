@@ -427,22 +427,23 @@ class HeroRepositoryImplementation : HeroRepository {
         return ApiResponse(
             success = true,
             message = "ok",
-            heroes = findHeroes(name = name)
+            heroes = findHeroes(query = name)
         )
     }
 
-    private fun findHeroes(name: String?): List<Hero> {
+    private fun findHeroes(query: String?): List<Hero> {
         val founded = mutableListOf<Hero>()
-        return if (!name.isNullOrEmpty()) {
+        return if (!query.isNullOrEmpty()) {
             heroes.forEach { (_, heroes) ->
                 heroes.forEach { hero ->
-                    if (hero.name.lowercase().contains(name.lowercase())) {
+                    if (hero.name.lowercase().contains(query.lowercase())) {
                         founded.add(hero)
                     }
                 }
             }
             founded
-        } else
+        } else {
             emptyList()
+        }
     }
 }
