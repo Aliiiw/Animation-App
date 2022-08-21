@@ -130,6 +130,20 @@ class ApplicationTest {
     }
 
 
+    @ExperimentalSerializationApi
+    @Test
+    fun `access search heroes endpoint, query hero name, assert multiple heroes result`() {
+        withTestApplication(moduleFunction = Application::module) {
+            handleRequest(HttpMethod.Get, "/boruto/heroes/search?name=sa").apply {
+                assertEquals(expected = HttpStatusCode.OK, actual = response.status())
+                val actual = Json.decodeFromString<ApiResponse>(response.content.toString())
+                    .heroes.size
+                assertEquals(expected = 3, actual = actual)
+            }
+        }
+    }
+
+
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
         var nextPage: Int? = page
