@@ -144,6 +144,20 @@ class ApplicationTest {
     }
 
 
+    @ExperimentalSerializationApi
+    @Test
+    fun `access search heroes endpoint, query an empty text, assert empty list as a result`() {
+        withTestApplication(moduleFunction = Application::module) {
+            handleRequest(HttpMethod.Get, "/boruto/heroes/search?name=").apply {
+                assertEquals(expected = HttpStatusCode.OK, actual = response.status())
+                val actual = Json.decodeFromString<ApiResponse>(response.content.toString())
+                    .heroes
+                assertEquals(expected = emptyList(), actual = actual)
+            }
+        }
+    }
+
+
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
         var nextPage: Int? = page
