@@ -172,6 +172,18 @@ class ApplicationTest {
     }
 
 
+    @ExperimentalSerializationApi
+    @Test
+    fun `access non existing endpoint,assert not found`() {
+        withTestApplication(moduleFunction = Application::module) {
+            handleRequest(HttpMethod.Get, "/unknown").apply {
+                assertEquals(expected = HttpStatusCode.NotFound, actual = response.status())
+                assertEquals(expected = "Page not found", actual = response.content)
+            }
+        }
+    }
+
+
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
         var nextPage: Int? = page
