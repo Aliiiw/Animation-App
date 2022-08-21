@@ -71,6 +71,29 @@ class ApplicationTest {
         }
     }
 
+    @ExperimentalSerializationApi
+    @Test
+    fun `access all heroes endpoint, query non existing page number, assert error`() {
+        withTestApplication(moduleFunction = Application::module) {
+            handleRequest(HttpMethod.Get, "/boruto/heroes?page=6").apply {
+                assertEquals(
+                    expected = HttpStatusCode.NotFound,
+                    actual = response.status()
+                )
+                val expected = ApiResponse(
+                    success = false,
+                    message = "Heroes not Found."
+                )
+                val actual = Json.decodeFromString<ApiResponse>(response.content.toString())
+                assertEquals(
+                    expected = expected,
+                    actual = actual
+                )
+            }
+        }
+    }
+
+
     private fun calculatePage(page: Int): Map<String, Int?> {
         var prevPage: Int? = page
         var nextPage: Int? = page
