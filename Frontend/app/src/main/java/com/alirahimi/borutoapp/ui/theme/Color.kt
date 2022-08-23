@@ -1,5 +1,7 @@
 package com.alirahimi.borutoapp.ui.theme
 
+import androidx.compose.runtime.Composable
+import androidx.compose.material.Colors
 import androidx.compose.ui.graphics.Color
 
 val Purple200 = Color(0xFFBB86FC)
@@ -11,3 +13,11 @@ val mainColor = Color(36, 47, 155)
 val mainColor2 = Color(110, 111, 212)
 val mainColor3 = Color(155, 163, 235)
 val mainColor4 = Color(219, 223, 253)
+
+
+val LightGray = Color(0xFFD8D8D8)
+val DarkGray = Color(0xFF2A2A2A)
+
+val Colors.welcomeScreenBackgroundColor
+    @Composable
+    get() = if (isLight) Color.White else Color.Black
