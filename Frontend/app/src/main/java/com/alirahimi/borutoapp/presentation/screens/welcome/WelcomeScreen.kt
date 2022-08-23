@@ -60,14 +60,16 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
     ) {
 
         Image(
+            modifier = Modifier
+                .fillMaxWidth(0.5f)
+                .fillMaxHeight(0.7f),
             painter = painterResource(id = onBoardingPage.image),
             contentDescription = ""
         )
 
         Text(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = EXTRA_LARGE_PADDING),
+                .fillMaxWidth(),
             text = onBoardingPage.title,
             color = MaterialTheme.colors.titleColor,
             fontSize = MaterialTheme.typography.h4.fontSize,
