@@ -5,19 +5,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.alirahimi.borutoapp.navigation.SetupNavGraph
 import com.alirahimi.borutoapp.ui.theme.BorutoAppTheme
+import com.alirahimi.borutoapp.navigation.SetupNavGraph
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var navController: NavHostController
+    private lateinit var navigationController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             BorutoAppTheme {
-                navController = rememberNavController()
-                SetupNavGraph(navController = navController)
+                navigationController = rememberNavController()
+                SetupNavGraph(navigationController = navigationController)
             }
         }
     }
