@@ -1,14 +1,22 @@
 package com.alirahimi.borutoapp.presentation.screens.welcome
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavHostController
 import com.alirahimi.borutoapp.domain.model.OnBoardingPage
+import com.alirahimi.borutoapp.ui.theme.descriptionColor
+import com.alirahimi.borutoapp.ui.theme.titleColor
 import com.alirahimi.borutoapp.ui.theme.welcomeScreenBackgroundColor
 import com.alirahimi.borutoapp.util.Constants.NUMBER_OF_BOARDING_PAGES
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -47,4 +55,30 @@ fun WelcomeScreen(navigationController: NavHostController) {
 @Composable
 fun PagerScreen(onBoardingPage: OnBoardingPage) {
 
+    Column(
+        modifier = Modifier
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+
+        Image(
+            painter = painterResource(id = onBoardingPage.image),
+            contentDescription = ""
+        )
+
+        Text(
+            text = onBoardingPage.title,
+            color = MaterialTheme.colors.titleColor,
+            fontSize = MaterialTheme.typography.h4.fontSize,
+            fontWeight = FontWeight.Bold
+        )
+
+        Text(
+            text = onBoardingPage.description,
+            color = MaterialTheme.colors.descriptionColor,
+            fontSize = MaterialTheme.typography.subtitle1.fontSize,
+            fontWeight = FontWeight.Medium
+        )
+    }
 }
