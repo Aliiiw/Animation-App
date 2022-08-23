@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.accompanist:accompanist-pager-indicators:0.21.2-beta@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b0bec428eec50641a85a1292f59ad5e1/transformed/jetified-accompanist-pager-indicators-0.21.2-beta/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b0bec428eec50641a85a1292f59ad5e1/transformed/jetified-accompanist-pager-indicators-0.21.2-beta/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b0bec428eec50641a85a1292f59ad5e1/transformed/jetified-accompanist-pager-indicators-0.21.2-beta/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-pager-indicators/0.21.2-beta/951deac076b0c7b14bdede6ed476f23f10fa906e/accompanist-pager-indicators-0.21.2-beta-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-pager-indicators/0.21.2-beta/c3c19912400464f308d19f8892e744903ff8f37e/accompanist-pager-indicators-0.21.2-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
