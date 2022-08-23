@@ -1,4 +1,4 @@
-package com.example.borutoapp.navigation
+package com.alirahimi.borutoapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -6,7 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
+import com.alirahimi.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 
 @Composable
 fun SetupNavGraph(navController: NavHostController) {

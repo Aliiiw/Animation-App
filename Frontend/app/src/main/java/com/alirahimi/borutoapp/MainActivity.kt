@@ -1,12 +1,12 @@
-package com.example.borutoapp
+package com.alirahimi.borutoapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.borutoapp.navigation.SetupNavGraph
-import com.example.borutoapp.ui.theme.BorutoAppTheme
+import com.alirahimi.borutoapp.navigation.SetupNavGraph
+import com.alirahimi.borutoapp.ui.theme.BorutoAppTheme
 
 class MainActivity : ComponentActivity() {
 

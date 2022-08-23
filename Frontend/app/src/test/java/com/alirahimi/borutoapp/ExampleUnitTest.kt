@@ -1,4 +1,4 @@
-package com.example.borutoapp
+package com.alirahimi.borutoapp
 
 import org.junit.Test
 

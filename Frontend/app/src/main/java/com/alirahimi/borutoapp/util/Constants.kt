@@ -1,4 +1,4 @@
-package com.example.borutoapp.util
+package com.alirahimi.borutoapp.util
 
 object Constants {
 

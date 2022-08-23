@@ -1,4 +1,4 @@
-package com.example.borutoapp.ui.theme
+package com.alirahimi.borutoapp.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

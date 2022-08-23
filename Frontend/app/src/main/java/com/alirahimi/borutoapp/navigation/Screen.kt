@@ -1,4 +1,4 @@
-package com.example.borutoapp.navigation
+package com.alirahimi.borutoapp.navigation
 
 sealed class Screen(val route: String) {
     object Splash : Screen("splash_screen")
