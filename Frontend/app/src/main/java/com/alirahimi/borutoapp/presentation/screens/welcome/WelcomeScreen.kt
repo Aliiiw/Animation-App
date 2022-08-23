@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.alirahimi.borutoapp.domain.model.OnBoardingPage
 import com.alirahimi.borutoapp.ui.theme.*
+import com.alirahimi.borutoapp.util.Constants.LAST_ON_BOARDING_PAGE
 import com.alirahimi.borutoapp.util.Constants.NUMBER_OF_BOARDING_PAGES
 import com.google.accompanist.pager.*
 
@@ -129,12 +130,12 @@ fun FinishButton(
     ) {
         AnimatedVisibility(
             modifier = Modifier.fillMaxWidth(),
-            visible = pagerState.currentPage == 2
+            visible = pagerState.currentPage == LAST_ON_BOARDING_PAGE
         ) {
             Button(
                 onClick = onClick,
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor =,
+                    backgroundColor = MaterialTheme.colors.buttonBackgroundColor,
                     contentColor = Color.White
                 )
             ) {
