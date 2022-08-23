@@ -1,4 +1,4 @@
-package com.alirahimi.borutoapp.data.preferences
+package com.alirahimi.borutoapp.data.repository
 
 import android.content.Context
 import androidx.datastore.core.DataStore
