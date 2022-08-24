@@ -15,4 +15,5 @@ interface BorutoApi {
     suspend fun searchHeroes(
         @Query("name") name: String
     ): ApiResponse
+
 }
