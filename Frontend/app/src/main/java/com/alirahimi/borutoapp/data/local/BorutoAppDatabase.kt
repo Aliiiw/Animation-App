@@ -6,9 +6,9 @@ import androidx.room.TypeConverters
 import com.alirahimi.borutoapp.data.local.data_access_object.HeroDao
 import com.alirahimi.borutoapp.data.local.data_access_object.HeroRemoteKeyDao
 import com.alirahimi.borutoapp.domain.model.Hero
-import com.alirahimi.borutoapp.domain.model.HeroRemoteKey
+import com.alirahimi.borutoapp.domain.model.HeroRemoteKeys
 
-@Database(entities = [Hero::class, HeroRemoteKey::class], version = 1)
+@Database(entities = [Hero::class, HeroRemoteKeys::class], version = 1)
 @TypeConverters(DatabaseConverter::class)
 abstract class BorutoAppDatabase : RoomDatabase() {
 
