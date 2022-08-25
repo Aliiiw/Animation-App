@@ -113,3 +113,28 @@ fun HalfFilledStar(
         }
     }
 }
+
+
+@Composable
+fun EmptyStar(
+    starPath: Path,
+    starPathBounds: Rect,
+    scaleFactor: Float
+) {
+    Canvas(modifier = Modifier.size(24.dp)) {
+        val canvasSize = size
+        scale(scale = scaleFactor) {
+            val pathWidth = starPathBounds.width
+            val pathHeight = starPathBounds.height
+            val left = (canvasSize.width / 2f) - (pathWidth / 1.7f)
+            val top = (canvasSize.height / 2f) - (pathHeight / 1.7f)
+
+            translate(left = left, top = top) {
+                drawPath(
+                    path = starPath,
+                    color = LightGray.copy(alpha = 0.5f)
+                )
+            }
+        }
+    }
+}
