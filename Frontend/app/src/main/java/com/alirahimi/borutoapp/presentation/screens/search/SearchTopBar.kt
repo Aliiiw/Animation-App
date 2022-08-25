@@ -13,11 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
-import com.alirahimi.borutoapp.R
 import com.alirahimi.borutoapp.ui.theme.TOP_APP_BAR_HEIGHT
 import com.alirahimi.borutoapp.ui.theme.topAppBarBackgroundColor
 import com.alirahimi.borutoapp.ui.theme.topAppBarContentColor
@@ -115,15 +112,4 @@ fun SearchWidget(
             )
         )
     }
-}
-
-@Composable
-@Preview
-fun SearchWidgetPreview() {
-    SearchWidget(
-        text = "",
-        onTextChange = {},
-        onSearchClicked = {},
-        onCloseClicked = {}
-    )
 }
