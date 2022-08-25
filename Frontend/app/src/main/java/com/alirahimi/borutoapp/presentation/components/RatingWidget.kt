@@ -28,9 +28,9 @@ import com.alirahimi.borutoapp.ui.theme.StarColor
 fun RatingWidget(
     modifier: Modifier,
     rating: Double,
+    scaleFactor: Float = 3f
 
-    ) {
-
+) {
 
     val starPathString = stringResource(id = R.string.star_path)
     val starPath = remember {
@@ -40,8 +40,11 @@ fun RatingWidget(
         starPath.getBounds()
     }
 
-    FilledStar(starPath = starPath, starPathBounds = starPathBounds)
-
+    FilledStar(
+        starPath = starPath,
+        starPathBounds = starPathBounds,
+        scaleFactor = scaleFactor
+    )
 
 }
 
@@ -49,7 +52,7 @@ fun RatingWidget(
 fun FilledStar(
     starPath: Path,
     starPathBounds: Rect,
-    scaleFactor: Float = 2f
+    scaleFactor: Float
 ) {
     Canvas(modifier = Modifier.size(24.dp)) {
 
@@ -67,6 +70,45 @@ fun FilledStar(
                     path = starPath,
                     color = StarColor
                 )
+            }
+        }
+    }
+}
+
+
+@Composable
+fun HalfFilledStar(
+    starPath: Path,
+    starPathBounds: Rect,
+    scaleFactor: Float
+) {
+    Canvas(modifier = Modifier.size(24.dp)) {
+
+        val canvasSize = size
+
+        scale(scale = scaleFactor) {
+
+            val pathWidth = starPathBounds.width
+            val pathHeight = starPathBounds.height
+            val left = (canvasSize.width / 2f) - (pathWidth / 1.7f)
+            val top = (canvasSize.height / 2f) - (pathHeight / 1.7f)
+
+            translate(left = left, top = top) {
+
+                drawPath(
+                    path = starPath,
+                    color = LightGray.copy(alpha = 0.5f)
+                )
+
+                clipPath(path = starPath) {
+                    drawRect(
+                        color = StarColor,
+                        size = Size(
+                            width = starPathBounds.maxDimension / 1.7f,
+                            height = starPathBounds.maxDimension * scaleFactor
+                        )
+                    )
+                }
             }
         }
     }
