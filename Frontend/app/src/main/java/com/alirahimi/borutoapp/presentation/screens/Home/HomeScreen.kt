@@ -1,9 +1,13 @@
 package com.alirahimi.borutoapp.presentation.screens.Home
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.alirahimi.borutoapp.presentation.components.RatingWidget
+import com.alirahimi.borutoapp.ui.theme.LARGE_PADDING
 
 @Composable
 fun HomeScreen(
@@ -17,6 +21,7 @@ fun HomeScreen(
 
         }
     ) {
+        RatingWidget(modifier = Modifier.padding(LARGE_PADDING), rating = 4.1)
 
     }
 }
