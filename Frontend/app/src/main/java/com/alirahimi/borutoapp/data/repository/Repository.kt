@@ -16,7 +16,6 @@ class Repository @Inject constructor(
         return remote.getAllHeroes()
     }
 
-
     suspend fun saveOnBoardingState(completed: Boolean) {
         dataStore.saveOnBoardingState(completed = completed)
     }
@@ -24,4 +23,5 @@ class Repository @Inject constructor(
     fun readOnBoardingState(): Flow<Boolean> {
         return dataStore.readOnBoardingState()
     }
+
 }

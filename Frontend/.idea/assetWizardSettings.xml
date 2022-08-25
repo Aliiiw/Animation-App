@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_placeholderdark" />
-                            <entry key="sourceFile" value="$USER_HOME$/Desktop/Boruto Project Files/placeholder/Dark/placeholder.svg" />
+                            <entry key="outputName" value="ic_network_error" />
+                            <entry key="sourceFile" value="$USER_HOME$/Desktop/Boruto Project Files/network_error.svg" />
                           </map>
                         </option>
                       </PersistentState>
