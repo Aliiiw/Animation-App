@@ -1,4 +1,4 @@
-package com.alirahimi.borutoapp.data.local.paging_source
+package com.alirahimi.borutoapp.data.paging_source
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType

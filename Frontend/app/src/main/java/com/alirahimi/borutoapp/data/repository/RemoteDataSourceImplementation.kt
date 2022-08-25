@@ -5,7 +5,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.alirahimi.borutoapp.data.local.BorutoAppDatabase
-import com.alirahimi.borutoapp.data.local.paging_source.HeroRemoteMediator
+import com.alirahimi.borutoapp.data.paging_source.HeroRemoteMediator
 import com.alirahimi.borutoapp.data.remote.BorutoApi
 import com.alirahimi.borutoapp.domain.model.Hero
 import com.alirahimi.borutoapp.domain.repository.RemoteDataSource
