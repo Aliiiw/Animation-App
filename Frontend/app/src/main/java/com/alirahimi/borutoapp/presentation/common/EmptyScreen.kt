@@ -15,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.alirahimi.borutoapp.R
@@ -23,12 +22,14 @@ import com.alirahimi.borutoapp.ui.theme.DarkGray
 import com.alirahimi.borutoapp.ui.theme.LightGray
 import com.alirahimi.borutoapp.ui.theme.NETWORK_ERROR_ICON_HEIGHT
 import com.alirahimi.borutoapp.ui.theme.SMALL_PADDING
+import java.net.ConnectException
+import java.net.SocketTimeoutException
 
 @Composable
 fun EmptyScreen(error: LoadState.Error) {
 
     val message by remember {
-        mutableStateOf(parseErrorMessage(message = error.toString()))
+        mutableStateOf(parseErrorMessage(error = error))
     }
     val icon by remember {
         mutableStateOf(R.drawable.ic_network_error)
@@ -78,12 +79,12 @@ fun EmptyContent(alphaAnimation: Float, icon: Int, message: String) {
     }
 }
 
-fun parseErrorMessage(message: String): String {
-    return when {
-        message.contains("SocketTimeoutException") -> {
+fun parseErrorMessage(error: LoadState.Error): String {
+    return when (error.error) {
+        is SocketTimeoutException -> {
             "Server Unavailable."
         }
-        message.contains("ConnectException") -> {
+        is ConnectException -> {
             "Internet Unavailable."
         }
         else -> {
