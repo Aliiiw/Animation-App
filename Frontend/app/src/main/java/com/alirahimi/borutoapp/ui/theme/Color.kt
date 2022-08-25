@@ -51,7 +51,7 @@ val Colors.inActiveIndicatorColor
 
 val Colors.buttonBackgroundColor
     @Composable
-    get() = if (isLight) mainColor else mainColor4
+    get() = if (isLight) mainColor else mainColor
 
 
 val Colors.topAppBarContentColor
