@@ -45,7 +45,7 @@ class SearchWidgetTest {
         }
         composeTestRule.onNodeWithContentDescription("TextField")
             .performTextInput("aliiiw")
-        composeTestRule.onNodeWithContentDescription("CloseButton")
+        composeTestRule.onNodeWithContentDescription("CloseIcon")
             .performClick()
         composeTestRule.onNodeWithContentDescription("TextField")
             .assertTextContains("")
@@ -71,9 +71,9 @@ class SearchWidgetTest {
         }
         composeTestRule.onNodeWithContentDescription("TextField")
             .performTextInput("aliiiw")
-        composeTestRule.onNodeWithContentDescription("CloseButton")
+        composeTestRule.onNodeWithContentDescription("CloseIcon")
             .performClick()
-        composeTestRule.onNodeWithContentDescription("CloseButton")
+        composeTestRule.onNodeWithContentDescription("CloseIcon")
             .performClick()
         composeTestRule.onNodeWithContentDescription("SearchWidget")
             .assertDoesNotExist()
@@ -97,7 +97,7 @@ class SearchWidgetTest {
                 )
             }
         }
-        composeTestRule.onNodeWithContentDescription("CloseButton")
+        composeTestRule.onNodeWithContentDescription("CloseIcon")
             .performClick()
         composeTestRule.onNodeWithContentDescription("SearchWidget")
             .assertDoesNotExist()
