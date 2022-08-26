@@ -62,3 +62,8 @@ val Colors.topAppBarContentColor
 val Colors.topAppBarBackgroundColor
     @Composable
     get() = if (isLight) mainColor else Color.Black
+
+
+val Colors.statusBarColor
+    @Composable
+    get() = if (isLight) mainColor else Color.Black
