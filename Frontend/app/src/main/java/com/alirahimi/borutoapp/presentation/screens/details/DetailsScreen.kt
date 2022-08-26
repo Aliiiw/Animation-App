@@ -12,6 +12,7 @@ import coil.annotation.ExperimentalCoilApi
 @Composable
 fun DetailsScreen(
     navigationController: NavHostController,
+    detailsViewModel: DetailsViewModel = hiltViewModel()
 ) {
-
+    val selectedHero = detailsViewModel.selectedHero
 }
