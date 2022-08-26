@@ -1,14 +1,17 @@
 package com.alirahimi.borutoapp.presentation.screens.details
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.BottomSheetValue.Collapsed
 import androidx.compose.material.BottomSheetValue.Expanded
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -44,7 +47,19 @@ fun DetailsContent(
 
     val currentSheetFraction = scaffoldState.currentSheetFraction
 
+    val radiusAnimation by animateDpAsState(
+        targetValue =
+        if (currentSheetFraction == 1f)
+            EXTRA_LARGE_PADDING
+        else
+            EXPANDED_RADIUS_LEVEL
+    )
+
     BottomSheetScaffold(
+        sheetShape = RoundedCornerShape(
+            topStart = radiusAnimation,
+            topEnd = radiusAnimation
+        ),
         scaffoldState = scaffoldState,
         sheetPeekHeight = MINIMUM_SHEET_HEIGHT,
         sheetContent = {
