@@ -51,7 +51,16 @@ fun DetailsContent(
         sheetContent = {
             selectedHero?.let { BottomSheetContent(selectedHero = it) }
         },
-        content = {}
+        content = {
+            selectedHero?.let { hero ->
+                BackgroundContent(
+                    heroImage = hero.image,
+                    onClosedClick = {
+                        navigationController.popBackStack()
+                    }
+                )
+            }
+        }
     )
 }
 
@@ -163,6 +172,59 @@ fun BottomSheetContent(
                 items = selectedHero.natureTypes,
                 textColor = contentColor
             )
+        }
+    }
+}
+
+
+@OptIn(ExperimentalCoilApi::class)
+@Composable
+fun BackgroundContent(
+    heroImage: String,
+    imageFraction: Float = 1f,
+    backgroundColor: Color = MaterialTheme.colors.surface,
+    onClosedClick: () -> Unit
+) {
+
+    val imageUrl = "$BASE_URL${heroImage}"
+    val painter = rememberImagePainter(imageUrl) {
+        error(R.drawable.ic_placeholder)
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(backgroundColor)
+    ) {
+
+        Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(imageFraction)
+                .align(Alignment.TopStart),
+            painter = painter,
+            contentDescription = "",
+            contentScale = ContentScale.Crop
+        )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.End
+        ) {
+            IconButton(
+                modifier = Modifier
+                    .padding(all = SMALL_PADDING),
+                onClick = { onClosedClick() }
+            ) {
+                Icon(
+                    modifier = Modifier
+                        .size(INFO_ICON_SIZE),
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "",
+                    tint = Color.White
+                )
+            }
         }
     }
 }
